@@ -2,7 +2,14 @@ import { Response, NextFunction } from "express";
 import { JwtPayload, userReqInt } from "../../module/interfaces";
 import { signupSchema } from "../../validations/signUpAndLoginSchema";
 import { userModel } from "../../model/userModel";
-import { accessTokenGen, compareHashString, otpGen, referGen, refreshTokenGen, verifyAccessToken } from "../../module/utils";
+import {
+  accessTokenGen,
+  compareHashString,
+  otpGen,
+  referGen,
+  refreshTokenGen,
+  verifyAccessToken,
+} from "../../module/utils";
 
 // CREATE
 export const signupOrLoginReq = async (
@@ -13,6 +20,18 @@ export const signupOrLoginReq = async (
   try {
     const { userId } = req.body;
     await signupSchema.validate({ userId }, { abortEarly: false });
+    // delete this block after you assigned the first role from USER to SUPERADMIN
+    {
+      const countUser = await userModel.countDocuments({});
+      if (countUser === 0) {
+        await userModel.create({
+          userId,
+          otp: { value: otpGen(), expiresIn: Date.now() + 60000 },
+          refer: `localhost:3000/refer?referrer=${referGen()}`,
+          role: 'SUPERADMIN'
+        })
+      }
+    }
     const user = await userModel.findOne({ userId });
     if (!user) {
       await userModel.create({
