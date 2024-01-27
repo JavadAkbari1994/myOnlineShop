@@ -25,31 +25,31 @@ import { updatePassword } from "../../controller/admin/user/password";
 const adminUserRouter = express.Router();
 
 adminUserRouter.post(
-  "/transactions",
+  "/create-transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   createTransaction
 );
 adminUserRouter.get(
-  "/transactions",
+  "/transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   getTransactions
 );
 adminUserRouter.put(
-  "/transactions",
+  "/update-transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateTransaction
 );
 adminUserRouter.delete(
-  "/transactions",
+  "/del-transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteTransaction
 );
 adminUserRouter.post(
-  "/create",
+  "/create-user",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   createUser
@@ -61,19 +61,19 @@ adminUserRouter.get(
   getUsers
 );
 adminUserRouter.put(
-  "/update",
+  "/update-user",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateUser
 );
 adminUserRouter.delete(
-  "/delete",
+  "/del-user",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteUser
 );
 adminUserRouter.post(
-  "/address",
+  "/add-address",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   addAddress
@@ -85,13 +85,13 @@ adminUserRouter.get(
   getAddresses
 );
 adminUserRouter.put(
-  "/address",
+  "/update-address",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateAddress
 );
 adminUserRouter.delete(
-  "/address",
+  "/del-address",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteAddress
@@ -103,13 +103,13 @@ adminUserRouter.get(
   getBalance
 );
 adminUserRouter.put(
-  "/balance",
+  "/update-balance",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateBalance
 );
 adminUserRouter.put(
-  "/password",
+  "/update-password",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updatePassword

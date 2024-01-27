@@ -77,9 +77,9 @@ shopRouter.post(
   resetPassword
 );
 shopRouter.get("/profile", checkLogin, checkRole(["SHOP"]), getProfile);
-shopRouter.put("/profile", checkLogin, checkRole(["SHOP"]), updateProfile);
+shopRouter.put("/update-profile", checkLogin, checkRole(["SHOP"]), updateProfile);
 shopRouter.post(
-  "/product",
+  "/add-product",
   checkLogin,
   checkRole(["SHOP"]),
   productImageUpload,
@@ -87,23 +87,23 @@ shopRouter.post(
 );
 shopRouter.get("/product", checkLogin, checkRole(["SHOP"]), getProducts);
 shopRouter.put(
-  "/product",
+  "/update-product",
   checkLogin,
   checkRole(["SHOP"]),
   productImageUpload,
   updateProduct
 );
-shopRouter.delete("/product", checkLogin, checkRole(["SHOP"]), deleteProduct);
+shopRouter.delete("/del-product", checkLogin, checkRole(["SHOP"]), deleteProduct);
 shopRouter.delete(
   "/product-image",
   checkLogin,
   checkRole(["SHOP"]),
   deleteProductImage
 );
-shopRouter.post("/address", checkLogin, checkRole(["SHOP"]), addAddress);
+shopRouter.post("/add-address", checkLogin, checkRole(["SHOP"]), addAddress);
 shopRouter.get("/address", checkLogin, checkRole(["SHOP"]), getAddresses);
-shopRouter.put("/address", checkLogin, checkRole(["SHOP"]), updateAddress);
-shopRouter.delete("/address", checkLogin, checkRole(["SHOP"]), deleteAddress);
+shopRouter.put("/update-address", checkLogin, checkRole(["SHOP"]), updateAddress);
+shopRouter.delete("/del-address", checkLogin, checkRole(["SHOP"]), deleteAddress);
 shopRouter.get("/orders", checkLogin, checkRole(["SHOP"]), getOrders);
 shopRouter.get("/referer", checkLogin, checkRole(["SHOP"]), getReferer);
 shopRouter.get(
@@ -113,21 +113,21 @@ shopRouter.get(
   getTransactions
 );
 shopRouter.get("/bank-info", checkLogin, checkRole(["SHOP"]), getBankInfo);
-shopRouter.put("/bank-info", checkLogin, checkRole(["SHOP"]), updateBankInfo);
+shopRouter.put("/update-bank-info", checkLogin, checkRole(["SHOP"]), updateBankInfo);
 shopRouter.get("/balance", checkLogin, checkRole(["SHOP"]), getBalance);
-shopRouter.post("/balance", checkLogin, checkRole(["SHOP"]), increaseBalance);
-shopRouter.put("/balance", checkLogin, checkRole(["SHOP"]), withdrawBalance);
+shopRouter.post("/increase-balance", checkLogin, checkRole(["SHOP"]), increaseBalance);
+shopRouter.put("/withdraw-balance", checkLogin, checkRole(["SHOP"]), withdrawBalance);
 shopRouter.post(
-  "/icon",
+  "/add-icon",
   checkLogin,
   checkRole(["SHOP"]),
   shopImageUpload,
   uploadProfileIcon
 );
 shopRouter.get("/icon", checkLogin, checkRole(["SHOP"]), getProfileIcon);
-shopRouter.delete("/icon", checkLogin, checkRole(["SHOP"]), deleteProfileIcon);
+shopRouter.delete("/del-icon", checkLogin, checkRole(["SHOP"]), deleteProfileIcon);
 shopRouter.post(
-  "/wallpaper",
+  "/add-wallpaper",
   checkLogin,
   checkRole(["SHOP"]),
   shopImageUpload,
@@ -140,7 +140,7 @@ shopRouter.get(
   getProfileWallpaper
 );
 shopRouter.delete(
-  "/wallpaper",
+  "/del-wallpaper",
   checkLogin,
   checkRole(["SHOP"]),
   deleteProfileWallpaper

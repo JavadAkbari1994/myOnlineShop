@@ -32,36 +32,36 @@ const userRouter = express.Router();
 
 userRouter.post("/register", signupOrLoginReq);
 userRouter.post("/otp-req", loginWithOtpReq);
-userRouter.put("/login", loginWithOtp);
-userRouter.post("/login", loginWithPassword);
+userRouter.put("/login-otp", loginWithOtp);
+userRouter.post("/login-password", loginWithPassword);
 userRouter.post(
-  "/password",
+  "/create-password",
   checkLogin,
   checkRole(["SUPERADMIN", "USER"]),
   createPassword
 );
 userRouter.patch(
-  "/password",
+  "/reset-password",
   checkLogin,
   checkRole(["SUPERADMIN", "USER"]),
   resetPassword
 );
 userRouter.put(
-  "/password",
+  "/change-password",
   checkLogin,
   checkRole(["SUPERADMIN", "USER"]),
   changePassword
 );
 userRouter.get("/profile", checkLogin, checkRole(["USER"]), getProfile);
 userRouter.post(
-  "/profile",
+  "/profile-name",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN", "USER"]),
   getName
 );
-userRouter.put("/profile", checkLogin, checkRole(["USER"]), updateProfile);
+userRouter.put("/update-profile", checkLogin, checkRole(["USER"]), updateProfile);
 userRouter.get("/product", getProducts);
-userRouter.post("/orders", checkLogin, checkRole(["USER"]), newOrder);
+userRouter.post("/new-orders", checkLogin, checkRole(["USER"]), newOrder);
 userRouter.get("/orders", checkLogin, checkRole(["USER"]), getOrders);
 userRouter.post("/submit-order", checkLogin, checkRole(["USER"]), submitOrder);
 userRouter.post("/add-address", checkLogin, checkRole(["USER"]), addAddress);

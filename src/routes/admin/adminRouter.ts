@@ -47,7 +47,7 @@ adminRouter.put(
   updatePassword
 );
 adminRouter.post(
-  "/product",
+  "/add-product",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   productImageUpload,
@@ -60,14 +60,14 @@ adminRouter.get(
   getProducts
 );
 adminRouter.put(
-  "/product",
+  "/update-product",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   productImageUpload,
   updateProduct
 );
 adminRouter.delete(
-  "/product",
+  "/del-product",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteProduct
@@ -79,45 +79,45 @@ adminRouter.delete(
   deleteProductImage
 );
 adminRouter.post(
-  "/category",
+  "/create-category",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   categoryImageUpload,
   createCategory
 );
 adminRouter.put(
-  "/category",
+  "/updatecategory",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   categoryImageUpload,
   updateCategory
 );
 adminRouter.delete(
-  "/category",
+  "/del-category",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteCategory
 );
 adminRouter.post(
-  "/orders",
+  "/create-order",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   createOrder
 );
 adminRouter.get(
-  "/orders",
+  "/order",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   getOrder
 );
 adminRouter.put(
-  "/orders",
+  "/update-order",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateOrder
 );
 adminRouter.delete(
-  "/orders",
+  "/del-orders",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteOrder

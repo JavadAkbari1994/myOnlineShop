@@ -41,37 +41,37 @@ import { shopImageUpload } from "../../module/multer/shopImageMulter";
 const adminShopRouter = express.Router();
 
 adminShopRouter.put(
-  "/activation",
+  "/shop-activation",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   activateShop
 );
 adminShopRouter.post(
-  "/transactions",
+  "/create-transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   createTransaction
 );
 adminShopRouter.get(
-  "/transactions",
+  "/transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   getTransactions
 );
 adminShopRouter.put(
-  "/transactions",
+  "/update-transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateTransaction
 );
 adminShopRouter.delete(
-  "/transactions",
+  "/del-transaction",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteTransaction
 );
 adminShopRouter.post(
-  "/create",
+  "/create-shop",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   createShop
@@ -83,19 +83,19 @@ adminShopRouter.get(
   getShop
 );
 adminShopRouter.put(
-  "/update",
+  "/update-shop",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateShop
 );
 adminShopRouter.delete(
-  "/delete",
+  "/del-shop",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteShop
 );
 adminShopRouter.post(
-  "/address",
+  "/add-address",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   addAddress
@@ -107,13 +107,13 @@ adminShopRouter.get(
   getAddresses
 );
 adminShopRouter.put(
-  "/address",
+  "/update-address",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateAddress
 );
 adminShopRouter.delete(
-  "/address",
+  "/del-address",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteAddress
@@ -125,7 +125,7 @@ adminShopRouter.get(
   getBalance
 );
 adminShopRouter.put(
-  "/balance",
+  "/update-balance",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateBalance
@@ -137,19 +137,19 @@ adminShopRouter.get(
   getBankInfo
 );
 adminShopRouter.put(
-  "/bank-info",
+  "/update-bank-info",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updateBankInfo
 );
 adminShopRouter.put(
-  "/password",
+  "/update-password",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   updatePassword
 );
 adminShopRouter.post(
-  "/icon",
+  "/add-icon",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   shopImageUpload,
@@ -162,13 +162,13 @@ adminShopRouter.get(
   getProfileIcon
 );
 adminShopRouter.delete(
-  "/icon",
+  "/del-icon",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteProfileIcon
 );
 adminShopRouter.post(
-  "/wallpaper",
+  "/add-wallpaper",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   shopImageUpload,
@@ -181,7 +181,7 @@ adminShopRouter.get(
   getProfileWallpaper
 );
 adminShopRouter.delete(
-  "/wallpaper",
+  "/del-wallpaper",
   checkLogin,
   checkRole(["SUPERADMIN", "ADMIN"]),
   deleteProfileWallpaper
